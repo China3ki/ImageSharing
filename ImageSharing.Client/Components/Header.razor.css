@@ -1,0 +1,24 @@
+﻿.header {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.header .header__image {
+  width: 100px;
+}
+.header ::deep .header__form {
+  display: flex;
+}
+.header ::deep .header__form .header__inputs {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+.header ::deep .header__form .header__inputs .header__input {
+  border: none;
+  padding: 5px;
+}
+.header ::deep .header__form .header__inputs .header__input--select {
+  border: none;
+}

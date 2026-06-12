@@ -1,5 +1,7 @@
-using ImageSharing.Client.Pages;
+using ImageSharing.Client.Services;
+using ImageSharing.Client.Test;
 using ImageSharing.Components;
+using ImageSharing.Shared.Interfaces;
 
 namespace ImageSharing
 {
@@ -13,6 +15,13 @@ namespace ImageSharing
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
+
+            builder.Services.AddScoped<ISearchService, SearchService>();
+            builder.Services.AddScoped<HttpClient>();
+
+            // Tests
+            builder.Services.AddScoped<ISearchService, TestSearchService>();
+
 
             var app = builder.Build();
 

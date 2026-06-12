@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ImageSharing.Client\ImageSharing.Client.csproj" />
+    <ProjectReference Include="..\ImageSharing.Shared\ImageSharing.Shared.csproj" />
+    <ProjectReference Include="..\ImageSharing.Tests\ImageSharing.Tests.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.9" />
   </ItemGroup>
 

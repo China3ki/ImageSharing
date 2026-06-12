@@ -1,0 +1,16 @@
+﻿<header class="header">
+    <img class="header__image" src="@Assets["favicon.png"]" alt="ImageSharing" />
+    <EditForm class="header__form" Model="_searchModel">
+        <InputText class="header__input" @bind-Value="_searchModel.Query" placeholder="Search" />
+        <InputSelect class="header__input--select" @bind-Value="_searchModel.SearchOption">
+            <option value="@SearchBy.Tags" selected>Tags</option>
+            <option value="@SearchBy.Title">Title</option>
+            <option value="@SearchBy.User">Users</option>
+        </InputSelect>
+        <button class="header__button">Search</button>
+    </EditForm>
+</header>
+
+
+
+@* --- Dla zalogowanego --- *@
