@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ImageSharing.Shared.Dto
 {
-    public class SearchModel
+    public class SearchDto
     {
         [Required]
         public string Query = string.Empty;
         [Required]
-        public SearchBy SearchOption;
+        public SearchBy SearchBy = SearchBy.Tags;
     }
 }

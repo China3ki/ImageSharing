@@ -6,7 +6,7 @@ namespace ImageSharing.Client.Services
 {
     public class SearchService(HttpClient httpClient) : ISearchService
     {
-        public SearchModel SearchModel { get; set; } = new();
+        public SearchDto SearchModel { get; set; } = new();
         private HttpClient _httpClient = httpClient;
         public TagModel[] SearchByTags(string input)
         {

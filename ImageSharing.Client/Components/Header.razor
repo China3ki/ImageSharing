@@ -1,16 +1,81 @@
 ﻿<header class="header">
-    <img class="header__image" src="@Assets["favicon.png"]" alt="ImageSharing" />
-    <EditForm class="header__form" Model="_searchModel">
-        <InputText class="header__input" @bind-Value="_searchModel.Query" placeholder="Search" />
-        <InputSelect class="header__input--select" @bind-Value="_searchModel.SearchOption">
-            <option value="@SearchBy.Tags" selected>Tags</option>
-            <option value="@SearchBy.Title">Title</option>
-            <option value="@SearchBy.User">Users</option>
-        </InputSelect>
-        <button class="header__button">Search</button>
-    </EditForm>
+    <img class="header__image" src="@Assets["favicon.png"]" alt="ImageSharing logo" />
+    <div class="header__menu">
+        <div class="header__sign">
+            <span class="header__icon header__icon--avatar" />
+            <span>Sign in</span>
+        </div>
+    </div>
+    <form class="header__form">
+        <div class="header__inputs">
+            <input type="text" class="header__input" placeholder="Search" @bind="_searchDto.Query" @bind:event="oninput" @onkeyup="Search" @onclick="ShowResults" />
+
+            <select class="header__input--select" @bind="_searchDto.SearchBy" @bind:after="Search">
+                <option value="@SearchBy.Tags" selected>Tags</option>
+                <option value="@SearchBy.Title">Title</option>
+                <option value="@SearchBy.User">Users</option>
+            </select>
+
+            @if (_searchDto.SearchBy == SearchBy.Tags && _searchModel.Tags.Length != 0)
+            {
+                <div class="header__results @(_hideResults ? "hide" : "")">
+                    @foreach (var tag in _searchModel.Tags)
+                    {
+                        <a href="#" class="header__result">
+                            <div class="header__content">
+                                <span class="header__icon header__icon--search"></span>
+                                <span>@tag.Name</span>
+                            </div>
+                            <span>@tag.Amount</span>
+                        </a>
+                    }
+                </div>
+            }
+
+            @if (_searchDto.SearchBy == SearchBy.Title && _searchModel.Titles.Length != 0)
+            {
+                <div class="header__results @(_hideResults ? "hide" : "")">
+                    @foreach (string name in _searchModel.Titles)
+                    {
+                        <a href="#" class="header__result">
+                            <div class="header__content">
+                                <span class="header__icon header__icon--search"></span>
+                                <span>@name</span>
+                            </div>
+                        </a>
+                    }
+                </div>
+            }
+
+            @if (_searchDto.SearchBy == SearchBy.User && _searchModel.Users.Length != 0)
+            {
+                <div class="header__results @(_hideResults ? "hide" : "")">
+                    @foreach (string name in _searchModel.Users)
+                    {
+                        <a href="#" class="header__result">
+                            <div class="header__content">
+                                <span class="header__icon header__icon--search"></span>
+                                <span>@name</span>
+                            </div>
+                        </a>
+                    }
+                </div>
+            }
+        </div>
+        <div class="header__button">
+            <button class="header__icon header__icon--search header__icon--button"></button>
+        </div>    
+    </form>
 </header>
+<nav class="nav">
+    <ul class="nav__list">
+        <li class="nav__element"><a href="nav__link">Explore</a></li>
+        <li class="nav__element"><a href="nav__link">Top</a></li>
+        <li class="nav__element"><a href="nav__link">Tags</a></li>
+        <li class="nav__element"><a href="nav__link">Users</a></li>
+    </ul>
+</nav>
 
-
+<div class="overlay @(_hideResults ? "hide" : "")" @onclick="HideResults"></div>
 
 @* --- Dla zalogowanego --- *@

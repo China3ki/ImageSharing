@@ -2,5 +2,9 @@
   {
     "outputFile": "Components/Header.razor.css",
     "inputFile": "Components/Header.razor.scss"
+  },
+  {
+    "outputFile": "Components/Image.razor.css",
+    "inputFile": "Components/Image.razor.scss"
   }
 ]
