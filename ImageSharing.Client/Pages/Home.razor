@@ -1,0 +1,17 @@
+﻿@page "/"
+@rendermode InteractiveAuto
+<PageTitle>Imageharing</PageTitle>
+<main class="main">
+    <section @ref="Container" class="images masonry-grid">
+        <div class="masonry-sizer"></div>
+        @if(ImageModels is not null) {
+           @foreach(var image in ImageModels)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    <Image ImageModel="image" />
+                }
+            }
+        } 
+    </section>
+</main>

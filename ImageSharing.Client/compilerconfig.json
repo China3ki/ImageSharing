@@ -6,5 +6,9 @@
   {
     "outputFile": "Components/Image.razor.css",
     "inputFile": "Components/Image.razor.scss"
+  },
+  {
+    "outputFile": "Pages/Home.razor.css",
+    "inputFile": "Pages/Home.razor.scss"
   }
 ]

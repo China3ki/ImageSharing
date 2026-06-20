@@ -1,0 +1,24 @@
+﻿.images {
+  /*  display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin: 20px 0px 0px 20px;
+    align-items:center;*/
+}
+
+.masonry-grid {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.masonry-sizer {
+  width: 350px;
+}
+
+.masonry-item {
+  width: 350px;
+}
+
+.main.hide {
+  opacity: 0;
+}

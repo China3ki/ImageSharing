@@ -20,6 +20,7 @@ namespace ImageSharing
 
             // Tests
             builder.Services.AddScoped<ISearchService, TestSearchService>();
+            builder.Services.AddScoped<IImageService, TestImageService>();
 
             var app = builder.Build();
 
