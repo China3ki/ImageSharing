@@ -2,16 +2,65 @@
 @rendermode InteractiveAuto
 <PageTitle>Imageharing</PageTitle>
 <main class="main">
-    <section @ref="Container" class="images masonry-grid">
-        <div class="masonry-sizer"></div>
-        @if(ImageModels is not null) {
-           @foreach(var image in ImageModels)
-            {
-                for (int i = 0; i < 3; i++)
+    <section class="section images__section">
+        <div class="section__header">
+            <h1 class="section__title">Featured Images</h1>
+            <a class="section__more" href="#">
+                <span class="section__icon"></span>
+                <span>More</span>
+            </a>
+        </div>
+        <div class="images">
+            @if(ImageModels is not null) {
+               @foreach(var image in ImageModels)
                 {
-                    <Image ImageModel="image" />
+                    for (int i = 0; i < 1; i++)
+                    {
+                        <Image ImageModel="image" />
+                    }
+                }
+            } 
+        </div>
+    </section>
+    <section class="section categories__section">
+        <div class="section__header">
+            <h1 class="section__title">Categories</h1>
+            <a class="section__more" href="#">
+                <span class="section__icon"></span>
+                <span>More</span>
+            </a>
+        </div>
+        <div class="categories">
+            @if(CategoriesModels is not null)
+            {
+                @foreach(var category in CategoriesModels)
+                {
+                    <a href="#" class="category">@category.Name</a>
                 }
             }
-        } 
+        </div>
+    </section>
+    <section class="section">
+        <div class="section__header">
+            <h1 class="section__title">Explore</h1>
+            <a class="section__more" href="#">
+                <span class="section__icon"></span>
+                <span>More</span>
+            </a>
+        </div>
+        <div class="more">
+            <div class="more__wrapper">
+                @if (ImageModels is not null)
+                {
+                    @foreach (var image in ImageModels)
+                    {
+                        for (int i = 0; i < 1; i++)
+                        {
+                            <Image ImageModel="image" SameSize="true" />
+                        }
+                    }
+                }
+            </div>
+        </div>
     </section>
 </main>

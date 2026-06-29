@@ -1,8 +1,6 @@
 ﻿using ImageSharing.Shared.Interfaces;
 using ImageSharing.Shared.Models;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-
 namespace ImageSharing.Client.Pages
 {
     public partial class Home
@@ -10,24 +8,21 @@ namespace ImageSharing.Client.Pages
         [Inject]
         private IImageService ImageService { get; set; } = default!;
         [Inject]
-        private IJSRuntime JsRuntime { get; set; } = default!;
-        [PersistentState]
+        private ICategoriesService CategoriesService { get; set; } = default!;
+  
         public ImageModel[]? ImageModels { get; set; } 
-        public ElementReference Container;
-        public bool IsLoading = true;
+        public CategoryModel[]? CategoriesModels { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             ImageModels = ImageService.GetImages();
+            CategoriesModels = CategoriesService.GetCategories();
         }
  
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                await JsRuntime.InvokeVoidAsync("initMasonry", Container);
-                IsLoading = false;
-                StateHasChanged();
             }
         }
     }

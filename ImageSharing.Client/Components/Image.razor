@@ -1,7 +1,7 @@
-﻿<div class="image masonry-item">
+﻿<div class="image">
     <div class="image__header">
         <a class="image__link" href="#" >
-            <img class="image__photo" src="@ImageModel.Image" alt="photo" />
+            <img class="image__photo @(SameSize ? "sameSize" : "")" src="@ImageModel.Image" alt="photo" />
         </a>
         <div class="image__content">
             <a href="#" class="image__author">

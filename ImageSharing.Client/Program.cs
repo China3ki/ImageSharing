@@ -11,6 +11,7 @@ namespace ImageSharing.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.Services.AddScoped<ISearchService, TestSearchService>();
             builder.Services.AddScoped<IImageService, TestImageService>();
+            builder.Services.AddScoped<ICategoriesService, TestCategoriesService>();
             await builder.Build().RunAsync();
         }
     }

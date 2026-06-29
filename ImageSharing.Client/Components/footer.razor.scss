@@ -1,0 +1,25 @@
+@import "../../ImageSharing.Shared/Css/_colors";
+.footer {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:5px;
+    padding:5px;
+    background-color:$c50;
+    font-weight:600;
+    .footer__link {
+        display:flex;
+        align-items:center;
+        padding:5px;
+        transition: .2s;
+        gap:10px;
+        border-radius: 10px;
+    }
+    .footer__link:hover {
+        background-color:$c200;
+    }
+    .footer__logo {
+        width:25px;
+
+    }
+}

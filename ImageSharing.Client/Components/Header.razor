@@ -1,9 +1,13 @@
 ﻿<header class="header">
     <img class="header__image" src="@Assets["favicon.png"]" alt="ImageSharing logo" />
-    <div class="header__menu">
-        <div class="header__sign">
+    <div class="header__menu" @onclick="ToggleDropdown">
+        <div class="header__sign" >
             <span class="header__icon header__icon--avatar" />
-            <span>Sign in</span>
+            <span>Sign in</span> 
+        </div>
+        <div class="header__dropdown header__dropdown--notlogged @(_hideDropDown ? "hide" : "")">
+            <a class="header__dropelement" href="/Login">Login</a>
+            <a class="header__dropelement" href="/Register">Register</a>
         </div>
     </div>
     <form class="header__form">
@@ -69,8 +73,8 @@
 </header>
 <nav class="nav">
     <ul class="nav__list">
-        <li class="nav__element"><NavLink class="nav__link" href="/" Match="NavLinkMatch.Prefix">Home</NavLink></li>
-        <li class="nav__element"><NavLink class="nav__link">Explore</NavLink></li>
+        <li class="nav__element"><NavLink class="nav__link" href="/" Match="NavLinkMatch.All">Home</NavLink></li>
+        <li class="nav__element"><NavLink class="nav__link" href="Explore" Match="NavLinkMatch.Prefix">Explore</NavLink></li>
         <li class="nav__element"><NavLink class="nav__link">Top</NavLink></li>
         <li class="nav__element"><NavLink class="nav__link">Tags</NavLink></li>
         <li class="nav__element"><NavLink class="nav__link">Users</NavLink></li>

@@ -13,8 +13,10 @@ namespace ImageSharing.Client.Components
         private readonly SearchDto _searchDto = new();
         private readonly SearchModel _searchModel = new();
         private bool _hideResults = true;
+        private bool _hideDropDown = true;
         private void ShowResults() => _hideResults = false;
         private void HideResults() => _hideResults = true;
+        private void ToggleDropdown() => _hideDropDown = !_hideDropDown;
         private void Search()
         {
             switch(_searchDto.SearchBy)

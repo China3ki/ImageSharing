@@ -10,5 +10,13 @@
   {
     "outputFile": "Pages/Home.razor.css",
     "inputFile": "Pages/Home.razor.scss"
+  },
+  {
+    "outputFile": "Components/footer.razor.css",
+    "inputFile": "Components/footer.razor.scss"
+  },
+  {
+    "outputFile": "Components/Login.razor.css",
+    "inputFile": "Components/Login.razor.scss"
   }
 ]

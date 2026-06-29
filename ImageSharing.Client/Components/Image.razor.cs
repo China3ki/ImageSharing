@@ -7,5 +7,7 @@ namespace ImageSharing.Client.Components
     {
         [Parameter]
         public ImageModel ImageModel { get; set; } = default!;
+        [Parameter]
+        public bool SameSize { get; set; } 
     }
 }
